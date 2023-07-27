@@ -19,7 +19,11 @@ export class LinksService {
     return this.linkRepository.findOne(id);
   }
 
-  async create(dto: CreateLinkDto): Promise<Link> {
+  async createOne(dto: CreateLinkDto): Promise<Link> {
+    return this.linkRepository.save(dto);
+  }
+
+  async createMany(dto: CreateLinkDto[]): Promise<Link[]> {
     return this.linkRepository.save(dto);
   }
 
